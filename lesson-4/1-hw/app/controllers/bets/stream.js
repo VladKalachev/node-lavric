@@ -1,4 +1,4 @@
-import eventBus from '#app/core/eventbus.js'
+import eventBus from '#app/globals/eventbus.js'
 import BetsAppendEvent from '#app/events/bets/append.js'
 import { Op } from 'sequelize'
 import Bet from '#app/models/bet.js'
