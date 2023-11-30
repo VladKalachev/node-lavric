@@ -5,7 +5,7 @@ import betsAddPage from '#app/controllers/bets/add.js'
 
 import chatPage from '#app/controllers/chat/page.js'
 // import chatStream from '#app/controllers/chat/stream.js'
-// import chatAdd from '#app/controllers/chat/add.js'
+import chatAdd from '#app/controllers/chat/add.js'
 
 // import monitorBroadcasts from '#app/controllers/monitor/broadcasts.js'
 
@@ -18,7 +18,7 @@ export default server => {
 	server.get('/bets/add', betsAddPage);
 	/* server.get('/bets/clients-debug', betsStreamPageDebug); */
 	server.get('/chat', chatPage);
-	// server.post('/chat', chatAdd);
+	server.post('/chat', chatAdd);
 	// server.get('/chat/stream', chatStream);
 
 	// server.get('/monitor/broadcasts', monitorBroadcasts);
