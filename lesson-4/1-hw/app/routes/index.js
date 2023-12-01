@@ -9,8 +9,8 @@ import chatAdd from '#app/controllers/chat/add.js'
 
 import monitorBroadcasts from '#app/controllers/monitor/broadcasts.js'
 
-// import ssePage from '#app/controllers/sample-sse/page.js'
-// import sseStream from '#app/controllers/sample-sse/stream.js'
+import ssePage from '#app/controllers/sample-sse/page.js'
+import sseStream from '#app/controllers/sample-sse/stream.js'
 
 export default server => {
 	server.get('/', homePage);
@@ -23,6 +23,6 @@ export default server => {
 
 	server.get('/monitor/broadcasts', monitorBroadcasts);
 	
-	// server.get('/sse', ssePage);
-	// server.get('/sse/stream', sseStream);
+	server.get('/sse', ssePage);
+	server.get('/sse/stream', sseStream);
 }
