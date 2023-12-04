@@ -9,6 +9,7 @@ export default class Channel{
 		let client = { request, response, created: new Date() };
 		this.clients.set(response, client);
 		response.on('close', () => this.removeClient(response));
+		return client;
 	}
 
 	removeClient(response){
