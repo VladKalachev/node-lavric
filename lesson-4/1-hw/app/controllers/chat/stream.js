@@ -4,7 +4,7 @@ import Message from '#app/models/message.js'
 import broadcast from '#app/globals/broadcast.js'
 
 const channel = broadcast.createChannel('Chat SSE');
-eventBus.on(ChatAppendEvent.name, e => channel.forClients(client => sendMessage(client, [ e.message ])));
+eventBus.on(ChatAppendEvent.name, e => channel.forClients(client => sendMessage(client, e.message)));
 
 export default async (request, response) => {
 	let immediatelyMessages = await Message.findAll();
@@ -15,9 +15,7 @@ export default async (request, response) => {
 		'Cache-Control': 'no-cache'
 	});
 
-	if(immediatelyMessages.length > 0){
-		sendMessage(client, immediatelyMessages);
-	}
+	immediatelyMessages.forEach(message => sendMessage(client, message));
 }
 
 function sendMessage(client, message){
