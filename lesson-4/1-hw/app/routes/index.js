@@ -12,6 +12,10 @@ import monitorBroadcasts from '#app/controllers/monitor/broadcasts.js'
 import ssePage from '#app/controllers/sample-sse/page.js'
 import sseStream from '#app/controllers/sample-sse/stream.js'
 
+import supportPage from '#app/controllers/support/page.js'
+import supportStream from '#app/controllers/support/stream.js'
+import supportAdd from '#app/controllers/support/add.js'
+
 export default server => {
 	server.get('/', homePage);
 	server.get('/bets', betsStreamPage);
@@ -25,4 +29,8 @@ export default server => {
 	
 	server.get('/sse', ssePage);
 	server.get('/sse/stream', sseStream);
+
+	server.get('/support', supportPage);
+	server.post('/support', supportAdd);
+	server.get('/support/stream', supportStream);
 }
